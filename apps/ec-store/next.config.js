@@ -12,6 +12,16 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  images: {
+    // domains: ['s3-ap-northeast-1.amazonaws.com'],
+    dangerouslyAllowSVG: true,
+    remotePatterns: [{
+      protocol: 'https',
+      hostname: 's3-ap-northeast-1.amazonaws.com',
+      port: '',
+      pathname: '/**'
+    }]
+  },
 };
 
 const plugins = [
