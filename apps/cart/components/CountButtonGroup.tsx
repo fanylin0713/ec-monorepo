@@ -1,3 +1,4 @@
+// import 'tailwindcss/tailwind.css';
 import { useAppDispatch } from '../lib/hooks';
 import { increment, decrement, resetState } from '../lib/features/CounterSlice';
 

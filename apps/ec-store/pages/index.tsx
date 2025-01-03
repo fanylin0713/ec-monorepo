@@ -1,4 +1,8 @@
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
+
+const CountButtonGroup = dynamic(() => import('cart/CountButtonGroup'));
+const CountText = dynamic(() => import('cart/CountText'));
 
 export function Index() {
   return (
@@ -20,6 +24,10 @@ export function Index() {
           />
         </nav>
       </header>
+      <div>
+        <CountButtonGroup />
+        <CountText />
+      </div>
     </>
   );
 }

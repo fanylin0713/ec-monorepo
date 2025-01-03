@@ -1,5 +1,6 @@
-const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
+const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
 const { join } = require('path');
+// nx-ignore-next-line
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
