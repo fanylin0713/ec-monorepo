@@ -26,16 +26,12 @@ const nextConfig = {
     svgr: false,
   },
   images: {
-    // domains: ['s3-ap-northeast-1.amazonaws.com'],
-    dangerouslyAllowSVG: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 's3-ap-northeast-1.amazonaws.com',
-        port: '',
-        pathname: '/**',
-      },
+    domains: [
+      's3-ap-northeast-1.amazonaws.com',
+      'global-bbn-s3.s3.ap-northeast-1.amazonaws.com',
+      'picsum.photos'
     ],
+    dangerouslyAllowSVG: true,
   },
   /**
    *
