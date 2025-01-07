@@ -1,10 +1,6 @@
 import { GetServerSideProps } from 'next';
-// import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import ProductList from '../components/ProductLists';
-
-// const CountButtonGroup = dynamic(() => import('cart/CountButtonGroup'));
-// const CountText = dynamic(() => import('cart/CountText'));
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch('https://dummyjson.com/products?limit=12');
@@ -56,8 +52,6 @@ export function Index({
       />
       <div>
         <ProductList products={productsData.products} />
-        {/* <CountButtonGroup />
-        <CountText /> */}
       </div>
     </div>
   );

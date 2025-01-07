@@ -29,7 +29,7 @@ export function ProductList({ products }: { products: Product[] }) {
             </p>
             <div className="flex items-center justify-between mb-2 mt-5">
               <p className="font-semibold text-lg">$ {product.price}</p>
-              <AddCartButton />
+              <AddCartButton product={product} />
             </div>
           </div>
         </Link>

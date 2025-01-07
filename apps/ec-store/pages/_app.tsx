@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import StoreProvider from './StoreProvider';
@@ -28,12 +29,14 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <StoreProvider>
         <main className="max-w-5xl mx-auto border-4 border-dashed border-red-400 p-1 mb-5">
           <header className="flex justify-between sticky top-10 bg-white">
-            <Image
-              src={`${process.env.NEXT_PUBLIC_S3_URL}/ac.ezimport.co.jp/image/bibianlogo.svg?t=1`}
-              alt="Bibian Logo"
-              width={260}
-              height={70}
-            />
+            <Link href="/">
+              <Image
+                src={`${process.env.NEXT_PUBLIC_S3_URL}/ac.ezimport.co.jp/image/bibianlogo.svg?t=1`}
+                alt="Bibian Logo"
+                width={260}
+                height={70}
+              />
+            </Link>
             <nav className="flex items-center">
               <p>Hi Fany</p>
               <CartIcon />

@@ -1,12 +1,23 @@
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../lib/features/CartSlice';
 
-export function AddCartButton() {
+type Product = {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+};
+
+type AddCartButtonProps = {
+  product: Product;
+};
+
+export function AddCartButton({ product }: AddCartButtonProps) {
   const dispatch = useDispatch();
 
-  const handleAddCartItemClick = (e: { preventDefault: () => void; }) => {
+  const handleAddCartItemClick = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    dispatch(addItemToCart({ productId: 1, quantity: 1 }));
+    dispatch(addItemToCart(product));
   };
 
   return (

@@ -19,6 +19,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addItemToCart: (state, action: PayloadAction<object | undefined>) => {
+      const incrementBy = action.payload !== undefined ? action.payload : 1;
       state.cartList.push(action.payload as CartItem);
     },
   },
