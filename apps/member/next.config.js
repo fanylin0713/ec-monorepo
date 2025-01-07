@@ -13,6 +13,10 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  images: {
+    domains: ['s3-ap-northeast-1.amazonaws.com'],
+    dangerouslyAllowSVG: true,
+  },
   /**
    *
    * @param {import('webpack').Configuration} config
@@ -29,6 +33,7 @@ const nextConfig = {
         },
         exposes: {
           './MemberStatus': './components/MemberStatus.tsx',
+          './LoginForm': './components/LoginForm.tsx',
         },
       })
     );

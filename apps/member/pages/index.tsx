@@ -1,4 +1,5 @@
 import MemberStatus from '../components/MemberStatus';
+import LoginForm from '../components/LoginForm';
 
 export function Index() {
   /*
@@ -9,6 +10,7 @@ export function Index() {
   return (
     <div className="max-w-5xl grid gap-5 mx-auto my-5">
       <MemberStatus />
+      <LoginForm />
     </div>
   );
 }
