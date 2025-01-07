@@ -14,3 +14,8 @@ declare module 'cart/AddCartButton' {
   export * from '@cart/components/AddCartButton';
   export { default } from '@cart/components/AddCartButton';
 }
+
+declare module 'member/MemberStatus' {
+  export * from '@member/components/MemberStatus';
+  export { default } from '@member/components/MemberStatus';
+}

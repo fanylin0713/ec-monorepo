@@ -13,6 +13,8 @@ const remotes = (isServer) => {
   return {
     store: `store@${process.env.NEXT_PUBLIC_STORE_URL}/_next/static/${location}/remoteEntry.js`,
     cart: `cart@${process.env.NEXT_PUBLIC_CART_URL}/_next/static/${location}/remoteEntry.js`,
+    member: `member@${process.env.NEXT_PUBLIC_MEMBER_URL}/_next/static/${location}/remoteEntry.js`,
+    order: `order@${process.env.NEXT_PUBLIC_ORDER_URL}/_next/static/${location}/remoteEntry.js`,
   };
 };
 

@@ -7,6 +7,7 @@ import StoreProvider from './StoreProvider';
 import './styles.css';
 
 const CartIcon = dynamic(() => import('cart/CartIcon'));
+const MemberStatus = dynamic(() => import('member/MemberStatus'));
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -38,7 +39,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
               />
             </Link>
             <nav className="flex items-center">
-              <p>Hi Fany</p>
+              <MemberStatus />
               <CartIcon />
             </nav>
           </header>
