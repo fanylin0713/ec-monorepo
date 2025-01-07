@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import shop from './features/ShopSlice';
-import counter from 'cart/counter-slice';
+import cart from 'cart/cart-slice';
 
 export const shopStore = () => {
   return configureStore({
-    reducer: combineReducers({ shop, counter }),
+    reducer: combineReducers({ shop, cart }),
   });
 };
 

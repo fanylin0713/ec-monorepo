@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+const AddCartButton = dynamic(() => import('cart/AddCartButton'));
 
 type Product = {
   id: number;
@@ -26,9 +29,7 @@ export function ProductList({ products }: { products: Product[] }) {
             </p>
             <div className="flex items-center justify-between mb-2 mt-5">
               <p className="font-semibold text-lg">$ {product.price}</p>
-              <button className="border border-sky-200 bg-sky-100 text-sky-500 rounded py-1 px-3 hover:bg-sky-400 hover:text-white">
-                Add to cart
-              </button>
+              <AddCartButton />
             </div>
           </div>
         </Link>

@@ -1,17 +1,21 @@
-import { useEffect, useState } from 'react';
 import { GetServerSideProps } from 'next';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import ProductList from '../components/ProductLists';
 
-const CountButtonGroup = dynamic(() => import('cart/CountButtonGroup'));
-const CountText = dynamic(() => import('cart/CountText'));
+// const CountButtonGroup = dynamic(() => import('cart/CountButtonGroup'));
+// const CountText = dynamic(() => import('cart/CountText'));
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch('https://dummyjson.com/products?limit=12');
-  const productsRes = await res.json();
+  const productsData = await res.json();
 
-  return { props: { productsRes } };
+  const bannerRes = await fetch(
+    'https://global-bbn-s3.s3.ap-northeast-1.amazonaws.com/family-mart/positions/2/banners/drug/0/20250106000003.json'
+  );
+  const bannerData = await bannerRes.json();
+
+  return { props: { productsData, bannerData } };
 };
 
 type Product = {
@@ -28,32 +32,32 @@ type Products = {
   total: number;
 };
 
-export function Index({ productsRes }: { productsRes: Products }) {
-  const [banners, setBanners] = useState([]);
+type Banner = {
+  alt: string;
+  image: string;
+};
 
-  useEffect(() => {
-    fetch(
-      'https://global-bbn-s3.s3.ap-northeast-1.amazonaws.com/family-mart/positions/2/banners/drug/0/20250106000003.json'
-    )
-      .then((response) => response.json()) // Convert response to blob
-      .then((data) => {
-        setBanners(data);
-      });
-  }, []);
-
+export function Index({
+  productsData,
+  bannerData,
+}: {
+  productsData: Products;
+  bannerData: Banner[];
+}) {
   return (
     <div>
       <Image
-        src={banners[2]?.image}
+        src={bannerData[2]?.image}
         alt="Bibian Logo"
         width={1280}
         height={550}
+        priority
         className="rounded mt-3"
       />
       <div>
-        <ProductList products={productsRes.products} />
-        <CountButtonGroup />
-        <CountText />
+        <ProductList products={productsData.products} />
+        {/* <CountButtonGroup />
+        <CountText /> */}
       </div>
     </div>
   );

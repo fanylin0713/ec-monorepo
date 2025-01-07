@@ -29,9 +29,9 @@ const nextConfig = {
           automaticAsyncBoundary: true,
         },
         exposes: {
-          './CountButtonGroup': './components/CountButtonGroup.tsx',
-          './CountText': './components/CountText.tsx',
-          './counter-slice': './lib/features/CounterSlice.ts',
+          './CartIcon': './components/CartIcon.tsx',
+          './AddCartButton': './components/AddCartButton.tsx',
+          './cart-slice': './lib/features/CartSlice.ts',
         },
         // shared: {
         //   ...deps,
