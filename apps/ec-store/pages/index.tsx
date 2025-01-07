@@ -17,6 +17,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 type Product = {
   id: number;
   title: string;
+  description: string;
+  price: number;
 };
 
 type Products = {
@@ -40,24 +42,7 @@ export function Index({ productsRes }: { productsRes: Products }) {
   }, []);
 
   return (
-    <div className="max-w-5xl mx-auto">
-      <header className="flex justify-between">
-        <Image
-          src={`${process.env.NEXT_PUBLIC_S3_URL}/ac.ezimport.co.jp/image/bibianlogo.svg?t=1`}
-          alt="Bibian Logo"
-          width={260}
-          height={70}
-        />
-        <nav className="flex items-center">
-          <p>Hi Fany</p>
-          <Image
-            src={`${process.env.NEXT_PUBLIC_S3_URL}/ac.ezimport.co.jp/image/mita/shopping-cart-auction-Search.png`}
-            alt="cart icon"
-            width={45}
-            height={60}
-          />
-        </nav>
-      </header>
+    <div>
       <Image
         src={banners[2]?.image}
         alt="Bibian Logo"
