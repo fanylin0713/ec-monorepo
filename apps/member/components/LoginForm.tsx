@@ -36,15 +36,20 @@ export function LoginForm() {
     if (userRes.status === 400) {
       alert('Invalid username or password');
     } else if (userRes.status === 200) {
-      setCookie('userToken', userData.accessToken, {
-        secure: true,
-        maxAge: 60 * 60, // 1 hour
-      });
       const userInfo = {
         id: userData.id,
         name: `${userData.firstName} ${userData.lastName}`,
         email: userData.email,
       };
+
+      setCookie('userToken', userData.accessToken, {
+        secure: true,
+        maxAge: 60 * 60, // 1 hour
+      });
+      setCookie('userInfo', userInfo, {
+        secure: true,
+        maxAge: 60 * 60, // 1 hour
+      });
       dispatch(setUserInfo(userInfo));
       router.push('/');
     }

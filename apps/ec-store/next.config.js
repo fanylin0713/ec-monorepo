@@ -44,6 +44,11 @@ const nextConfig = {
         hostname: 'picsum.photos',
         pathname: '**',
       },
+      {
+        protocol: 'https',
+        hostname: 'dummyjson.com',
+        pathname: '**',
+      },
     ],
     dangerouslyAllowSVG: true,
   },

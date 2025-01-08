@@ -14,6 +14,21 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'dummyjson.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        pathname: '**',
+      },
+    ],
+    dangerouslyAllowSVG: true,
+  },
   /**
    *
    * @param {import('webpack').Configuration} config
@@ -31,6 +46,7 @@ const nextConfig = {
         exposes: {
           './CartIcon': './components/CartIcon.tsx',
           './AddCartButton': './components/AddCartButton.tsx',
+          './CartList': './components/CartList.tsx',
           './cart-slice': './lib/features/CartSlice.ts',
         },
         // shared: {

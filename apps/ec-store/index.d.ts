@@ -15,6 +15,11 @@ declare module 'cart/AddCartButton' {
   export { default } from '@cart/components/AddCartButton';
 }
 
+declare module 'cart/CartList' {
+  export * from '@cart/components/CartList';
+  export { default } from '@cart/components/CartList';
+}
+
 declare module 'member/MemberStatus' {
   export * from '@member/components/MemberStatus';
   export { default } from '@member/components/MemberStatus';
