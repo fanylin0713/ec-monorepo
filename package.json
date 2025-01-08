@@ -8,6 +8,7 @@
     "@hookform/resolvers": "^3.10.0",
     "@module-federation/nextjs-mf": "^8.8.8",
     "@reduxjs/toolkit": "^2.5.0",
+    "cookies-next": "^5.0.2",
     "next": "14.2.16",
     "react": "18.3.1",
     "react-dom": "18.3.1",
