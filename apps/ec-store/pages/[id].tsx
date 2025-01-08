@@ -13,7 +13,6 @@ type Product = {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  console.log(context);
   const productId = context.query.id;
 
   const res = await fetch(`https://dummyjson.com/products/${productId}`);
@@ -25,7 +24,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 export function Product({ product }: { product: Product }) {
   const params = useParams<{ id: string }>();
 
-  console.log(product);
   return (
     <div className="grid grid-cols-2 gap-5 mt-3">
       <Image

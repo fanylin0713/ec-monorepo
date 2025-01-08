@@ -14,7 +14,13 @@ const nextConfig = {
     svgr: false,
   },
   images: {
-    domains: ['s3-ap-northeast-1.amazonaws.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 's3-ap-northeast-1.amazonaws.com',
+        pathname: '**',
+      },
+    ],
     dangerouslyAllowSVG: true,
   },
   /**
@@ -34,6 +40,7 @@ const nextConfig = {
         exposes: {
           './MemberStatus': './components/MemberStatus.tsx',
           './LoginForm': './components/LoginForm.tsx',
+          './member-slice': './lib/features/MemberSlice.ts',
         },
       })
     );

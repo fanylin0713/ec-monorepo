@@ -1,5 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { setCookie } from 'cookies-next';
+import { useDispatch } from 'react-redux';
+import { setUserInfo } from '../lib/features/MemberSlice';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -8,6 +12,9 @@ import { loginSchema } from '../zodSchema/login';
 type FormData = z.infer<typeof loginSchema>;
 
 export function LoginForm() {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
   const {
     handleSubmit,
     register,
@@ -17,9 +24,6 @@ export function LoginForm() {
   });
 
   const onSubmit = async (data: FormData) => {
-    console.log(isSubmitting);
-    console.log(data);
-
     const userRes = await fetch('https://dummyjson.com/user/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -29,8 +33,21 @@ export function LoginForm() {
       }),
     });
     const userData = await userRes.json();
-
-    console.log(userData);
+    if (userRes.status === 400) {
+      alert('Invalid username or password');
+    } else if (userRes.status === 200) {
+      setCookie('userToken', userData.accessToken, {
+        secure: true,
+        maxAge: 60 * 60, // 1 hour
+      });
+      const userInfo = {
+        id: userData.id,
+        name: `${userData.firstName} ${userData.lastName}`,
+        email: userData.email,
+      };
+      dispatch(setUserInfo(userInfo));
+      router.push('/');
+    }
   };
 
   return (

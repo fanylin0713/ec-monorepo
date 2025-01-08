@@ -7,7 +7,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const productsData = await res.json();
 
   const bannerRes = await fetch(
-    'https://global-bbn-s3.s3.ap-northeast-1.amazonaws.com/family-mart/positions/2/banners/drug/0/20250106000003.json'
+    'https://global-bbn-s3.s3.ap-northeast-1.amazonaws.com/family-mart/positions/2/banners/drug/0/20250108100002.json'
   );
   const bannerData = await bannerRes.json();
 

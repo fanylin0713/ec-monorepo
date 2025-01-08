@@ -19,3 +19,8 @@ declare module 'member/MemberStatus' {
   export * from '@member/components/MemberStatus';
   export { default } from '@member/components/MemberStatus';
 }
+
+declare module 'member/LoginForm' {
+  export * from '@member/components/LoginForm';
+  export { default } from '@member/components/LoginForm';
+}

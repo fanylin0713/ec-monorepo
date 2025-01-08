@@ -28,10 +28,22 @@ const nextConfig = {
     svgr: false,
   },
   images: {
-    domains: [
-      's3-ap-northeast-1.amazonaws.com',
-      'global-bbn-s3.s3.ap-northeast-1.amazonaws.com',
-      'picsum.photos'
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 's3-ap-northeast-1.amazonaws.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'global-bbn-s3.s3.ap-northeast-1.amazonaws.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        pathname: '**',
+      },
     ],
     dangerouslyAllowSVG: true,
   },
