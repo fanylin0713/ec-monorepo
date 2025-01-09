@@ -4,8 +4,8 @@ export function ProductUnexpected() {
   const { register } = useFormContext();
 
   return (
-    <div className="bg-zinc-100 rounded p-3">
-      <p className="text-xl mb-2 font-medium text-zinc-700">
+    <div className="bg-zinc-100 rounded p-4">
+      <p className="text-xl mb-4 font-medium text-zinc-700">
         如遇品項缺貨、同一品項數量不足
       </p>
       <div className="flex item-center mb-5">
@@ -32,7 +32,7 @@ export function ProductUnexpected() {
           </label>
         </div>
       </div>
-      <p className="text-xl mb-2 font-medium text-zinc-700">當商品漲價時</p>
+      <p className="text-xl mb-4 font-medium text-zinc-700">當商品漲價時</p>
       <div className="flex item-center mb-5">
         <div className="bg-white rounded border border-gray-300 px-4 py-2 mr-4 w-72">
           <label>

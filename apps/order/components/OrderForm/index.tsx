@@ -1,6 +1,8 @@
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
 import ProductUnexpected from './ProductUnexpected';
 import Shipment from './Shipment';
+import CouponNote from './CouponNote';
+import PriceTotal from './PriceTotal';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { orderSchema } from '../../zodSchema/order';
@@ -22,7 +24,10 @@ export function OrderForm() {
       <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
         <ProductUnexpected />
         <Shipment />
-        <input {...register('test')} type="text" />
+        <div className="flex mt-5">
+          <CouponNote />
+          <PriceTotal />
+        </div>
         <button type="submit">confirm</button>
       </form>
     </FormProvider>

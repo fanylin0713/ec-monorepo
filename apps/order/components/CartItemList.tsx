@@ -42,8 +42,8 @@ export function CartItemList() {
   }, []);
 
   return (
-    <div className="bg-zinc-100 rounded py-2 px-3">
-      <p className="text-xl mb-2">已選購商品</p>
+    <div className="bg-zinc-100 rounded p-4">
+      <p className="text-xl mb-4">已選購商品</p>
       {cartData.products?.map((product) => (
         <div
           key={product.id}
