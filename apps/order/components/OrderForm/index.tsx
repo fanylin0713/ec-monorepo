@@ -1,8 +1,10 @@
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 import ProductUnexpected from './ProductUnexpected';
 import Shipment from './Shipment';
 import CouponNote from './CouponNote';
 import PriceTotal from './PriceTotal';
+import PolicyAction from './PolicyAction';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { orderSchema } from '../../zodSchema/order';
@@ -13,10 +15,14 @@ export function OrderForm() {
   const methods = useForm<FormData>({
     resolver: zodResolver(orderSchema),
   });
-  const { handleSubmit, register } = methods;
+  const { handleSubmit } = methods;
+  const router = useRouter();
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     console.log(data);
+    setTimeout(() => {
+      router.push('/payment');
+    }, 1000);
   };
 
   return (
@@ -28,7 +34,7 @@ export function OrderForm() {
           <CouponNote />
           <PriceTotal />
         </div>
-        <button type="submit">confirm</button>
+        <PolicyAction />
       </form>
     </FormProvider>
   );
