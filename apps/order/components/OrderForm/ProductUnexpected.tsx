@@ -1,9 +1,7 @@
 import { useFormContext } from 'react-hook-form';
 
 export function ProductUnexpected() {
-  const { register, watch } = useFormContext();
-
-  console.log(watch());
+  const { register } = useFormContext();
 
   return (
     <div className="bg-zinc-100 rounded p-3">
