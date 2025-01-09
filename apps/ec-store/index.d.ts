@@ -29,3 +29,8 @@ declare module 'member/LoginForm' {
   export * from '@member/components/LoginForm';
   export { default } from '@member/components/LoginForm';
 }
+
+declare module 'order/Order' {
+  export * from '@order/Order';
+  export { default } from '@order/Order';
+}

@@ -18,6 +18,10 @@ module.exports = {
       __dirname,
       '../member/{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
     ),
+    join(
+      __dirname,
+      '../order/{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
+    ),
   ],
   theme: {
     extend: {},

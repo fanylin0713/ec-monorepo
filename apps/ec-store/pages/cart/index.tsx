@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 
-const CartList = dynamic(() => import('cart/CartList'));
+const CartList = dynamic(() => import('cart/CartList'), { ssr: false });
 export function Cart() {
   return <CartList />;
 }
