@@ -49,6 +49,11 @@ const nextConfig = {
         hostname: 'dummyjson.com',
         pathname: '**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn2.thecatapi.com',
+        pathname: '**',
+      },
     ],
     dangerouslyAllowSVG: true,
   },

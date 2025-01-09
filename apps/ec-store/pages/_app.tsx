@@ -15,7 +15,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Welcome to ec-store!</title>
       </Head>
-      <div className="py-2 sticky top-0 bg-zinc-600">
+      <div className="py-2 sticky top-0 bg-zinc-800 backdrop-blur-md bg-opacity-70">
         <div className="max-w-5xl mx-auto flex items-center">
           <div className="w-3 h-3 bg-red-400 rounded-full mr-2" />
           <p className="text-white font-medium mr-5">Host</p>
@@ -29,7 +29,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
       </div>
       <StoreProvider>
         <main className="max-w-5xl mx-auto border-4 border-dashed border-red-400 p-1 mb-5">
-          <header className="flex justify-between sticky top-10 bg-white">
+          <header className="flex justify-between sticky top-10 backdrop-blur-sm bg-opacity-70 bg-white">
             <Link href="/">
               <Image
                 src={`${process.env.NEXT_PUBLIC_S3_URL}/ac.ezimport.co.jp/image/bibianlogo.svg?t=1`}
