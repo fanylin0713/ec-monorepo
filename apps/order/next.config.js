@@ -13,6 +13,16 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'dummyjson.com',
+        pathname: '**',
+      },
+    ],
+    dangerouslyAllowSVG: true,
+  },
   /**
    *
    * @param {import('webpack').Configuration} config

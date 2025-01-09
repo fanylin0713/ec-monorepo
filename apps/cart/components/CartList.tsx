@@ -23,7 +23,7 @@ export function CartList() {
     const userInfoCookie = getCookie('userInfo');
     const userId = userInfoCookie ? JSON.parse(userInfoCookie).id : 0;
 
-    fetch(`https://dummyjson.com/users/${userId}/carts`)
+    fetch(`https://dummyjson.com/users/11/carts`)
       .then((res) => res.json())
       .then((data) => {
         const cartResData = {
