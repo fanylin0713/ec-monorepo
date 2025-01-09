@@ -1,5 +1,7 @@
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
+// 用 next/navigation 在 host 會有白屏問題
+// import { useRouter } from 'next/navigation'; 
+import { useRouter } from 'next/router';
 import ProductUnexpected from './ProductUnexpected';
 import Shipment from './Shipment';
 import CouponNote from './CouponNote';
