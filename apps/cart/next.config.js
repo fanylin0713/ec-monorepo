@@ -1,9 +1,5 @@
-//@ts-check
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { composePlugins, withNx } = require('@nx/next');
 const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
-// const deps = require('../package.json').dependencies;
 
 /**
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
@@ -14,6 +10,8 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  output: 'standalone',
+  outputStyle: 'compressed',
   images: {
     remotePatterns: [
       {
@@ -29,11 +27,6 @@ const nextConfig = {
     ],
     dangerouslyAllowSVG: true,
   },
-  /**
-   *
-   * @param {import('webpack').Configuration} config
-   * @returns {import('webpack').Configuration}
-   */
   webpack(config) {
     config.plugins.push(
       new NextFederationPlugin({
@@ -49,17 +42,6 @@ const nextConfig = {
           './CartList': './components/CartList.tsx',
           './cart-slice': './lib/features/CartSlice.ts',
         },
-        // shared: {
-        //   ...deps,
-        //   react: {
-        //     singleton: true,
-        //     requiredVersion: deps['react'],
-        //   },
-        //   'react-dom': {
-        //     singleton: true,
-        //     requiredVersion: deps['react-dom'],
-        //   },
-        // },
       })
     );
 

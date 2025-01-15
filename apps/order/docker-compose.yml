@@ -1,0 +1,7 @@
+services:
+  order:
+    build:
+      context: ../../
+      dockerfile: apps/order/Dockerfile
+    ports:
+      - '3003:3003'

@@ -1,6 +1,3 @@
-//@ts-check
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { composePlugins, withNx } = require('@nx/next');
 const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 
@@ -13,6 +10,9 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  output: 'standalone',
+  outputStyle: 'compressed',
+  // outputFileTracingRoot: path.join(__dirname, '../../'),
   images: {
     remotePatterns: [
       {
@@ -23,20 +23,13 @@ const nextConfig = {
     ],
     dangerouslyAllowSVG: true,
   },
-  /**
-   *
-   * @param {import('webpack').Configuration} config
-   * @returns {import('webpack').Configuration}
-   */
   webpack(config) {
     config.plugins.push(
       new NextFederationPlugin({
         name: 'member',
         filename: 'static/chunks/remoteEntry.js',
         remotes: {},
-        extraOptions: {
-          automaticAsyncBoundary: true,
-        },
+        extraOptions: {},
         exposes: {
           './MemberStatus': './components/MemberStatus.tsx',
           './LoginForm': './components/LoginForm.tsx',

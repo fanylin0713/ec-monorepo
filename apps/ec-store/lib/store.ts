@@ -1,5 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import shop from './features/ShopSlice';
 import cart from 'cart/cart-slice';
 import member from 'member/member-slice';

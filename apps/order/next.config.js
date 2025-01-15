@@ -13,6 +13,8 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  output: 'standalone',
+  outputStyle: 'compressed',
   images: {
     remotePatterns: [
       {
@@ -23,20 +25,13 @@ const nextConfig = {
     ],
     dangerouslyAllowSVG: true,
   },
-  /**
-   *
-   * @param {import('webpack').Configuration} config
-   * @returns {import('webpack').Configuration}
-   */
   webpack(config) {
     config.plugins.push(
       new NextFederationPlugin({
         name: 'order',
         filename: 'static/chunks/remoteEntry.js',
         remotes: {},
-        extraOptions: {
-          automaticAsyncBoundary: true,
-        },
+        extraOptions: {},
         exposes: {
           './Order': './pages/index.tsx',
         },

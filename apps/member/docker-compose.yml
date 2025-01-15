@@ -1,0 +1,7 @@
+services:
+  member:
+    build:
+      context: ../../
+      dockerfile: apps/member/Dockerfile
+    ports:
+      - '3002:3002'

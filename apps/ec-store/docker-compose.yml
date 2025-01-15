@@ -1,0 +1,7 @@
+services:
+  ec-store:
+    build:
+      context: ../../
+      dockerfile: apps/ec-store/Dockerfile
+    ports:
+      - '3001:3001'

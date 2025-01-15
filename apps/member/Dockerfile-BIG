@@ -1,0 +1,26 @@
+# Specify the base image
+FROM node:18-alpine AS builder
+
+# 安裝 pnpm
+RUN npm install -g pnpm
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and pnpm-lock.yaml
+COPY package*.json pnpm-lock.yaml ./
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile
+
+# Copy the rest of your application code
+COPY . .
+
+# build member
+RUN npx nx build member
+
+# Expose port 3000
+EXPOSE 3000
+
+# Command to run your app
+CMD ["npx", "nx", "start", "member", "-p", "3000"]

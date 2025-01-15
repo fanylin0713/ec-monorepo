@@ -21,7 +21,7 @@ export function CartList() {
   const [cartData, setCartData] = useState({} as Cart);
   useEffect(() => {
     const userInfoCookie = getCookie('userInfo');
-    const userId = userInfoCookie ? JSON.parse(userInfoCookie).id : 0;
+    const userId = userInfoCookie ? JSON.parse(userInfoCookie as string).id : 0;
 
     fetch(`https://dummyjson.com/users/11/carts`)
       .then((res) => res.json())

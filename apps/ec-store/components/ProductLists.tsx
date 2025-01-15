@@ -2,7 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
-const AddCartButton = dynamic(() => import('cart/AddCartButton'));
+const AddCartButton = dynamic<{ product: Product }>(
+  () => import('cart/AddCartButton')
+);
 
 type Product = {
   id: number;
@@ -10,6 +12,7 @@ type Product = {
   description: string;
   price: number;
 };
+
 export function ProductList({ products }: { products: Product[] }) {
   return (
     <div className="grid grid-cols-3 gap-4 my-5">

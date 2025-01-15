@@ -1,0 +1,7 @@
+services:
+  cart:
+    build:
+      context: ../../
+      dockerfile: apps/cart/Dockerfile
+    ports:
+      - '3000:3000'

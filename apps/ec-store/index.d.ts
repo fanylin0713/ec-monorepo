@@ -30,6 +30,9 @@ declare module 'member/LoginForm' {
   export { default } from '@member/components/LoginForm';
 }
 
+declare module 'member/member-slice';
+declare module 'cart/cart-slice';
+
 declare module 'order/Order' {
   export * from '@order/Order';
   export { default } from '@order/Order';
