@@ -1,6 +1,6 @@
-import dynamic from 'next/dynamic';
+import React, { lazy } from 'react';
 
-const LoginForm = dynamic(() => import('member/LoginForm'));
+const LoginForm = lazy(() => import('member/LoginForm'));
 
 export function Login() {
   return (

@@ -1,4 +1,6 @@
 import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
+import { getCookie } from 'cookies-next';
 import { addItemToCart } from '../lib/features/CartSlice';
 
 type Product = {
@@ -14,10 +16,16 @@ type AddCartButtonProps = {
 
 export function AddCartButton({ product }: AddCartButtonProps) {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const handleAddCartItemClick = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    dispatch(addItemToCart(product));
+    const userInfoCookie = getCookie('userInfo');
+    if (!userInfoCookie) {
+      router.push('/login');
+    } else {
+      dispatch(addItemToCart(product));
+    }
   };
 
   return (

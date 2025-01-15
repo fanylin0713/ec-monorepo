@@ -1,13 +1,13 @@
+import React, { lazy } from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import StoreProvider from './StoreProvider';
 import './styles.css';
 
-const CartIcon = dynamic(() => import('cart/CartIcon'));
-const MemberStatus = dynamic(() => import('member/MemberStatus'));
+const CartIcon = lazy(() => import('cart/CartIcon'));
+const MemberStatus = lazy(() => import('member/MemberStatus'));
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (

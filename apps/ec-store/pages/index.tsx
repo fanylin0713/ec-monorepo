@@ -7,7 +7,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const productsData = await res.json();
 
   const bannerRes = await fetch(
-    'https://global-bbn-s3.s3.ap-northeast-1.amazonaws.com/family-mart/positions/2/banners/drug/0/20250108100002.json'
+    'https://global-bbn-s3.s3.ap-northeast-1.amazonaws.com/family-mart/positions/2/banners/drug/0/20250115000002.json'
   );
   const bannerData = await bannerRes.json();
 
@@ -43,7 +43,7 @@ export function Index({
   return (
     <div>
       <Image
-        src={bannerData[2]?.image}
+        src={bannerData[1]?.image}
         alt="Bibian Logo"
         width={1280}
         height={550}
